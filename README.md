@@ -3,6 +3,7 @@
 1. NextJS 前端页面
 
     - 静态就行
+    - 搞个好的钱包互动界面
 
 2. ERC20 TOKEN 投放
 
@@ -15,4 +16,13 @@ function airdropERC20(){
 }
 ```
 
-3.
+3. 部署到 vercel 或者 fleek
+
+## 技术栈
+
+-   NextJs
+-   Tailwind
+-   viem
+-   wagmi
+-   RainbowKit
+-   tanstack/react-query
