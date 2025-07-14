@@ -69,7 +69,7 @@ export function AirDropForm() {
     async function onSubmit(data: z.infer<typeof AirDropFormSchemaClient>) {
         toast("You submitted the following values", {
             description: (
-                <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
+                <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4 whitespace-pre-wrap">
                     <code className="text-white">{JSON.stringify(data, null, 2)}</code>
                 </pre>
             ),
@@ -112,7 +112,13 @@ export function AirDropForm() {
                     BigInt(total),
                 ],
             });
-            console.log("*** res:", res, "***");
+            toast("Succeed! The hash is: ", {
+                description: (
+                    <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4 whitespace-pre-wrap">
+                        <code className="text-white">{JSON.stringify(res, null, 2)}</code>
+                    </pre>
+                ),
+            });
         }
     }
 
