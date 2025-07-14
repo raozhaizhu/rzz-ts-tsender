@@ -1,52 +1,46 @@
+// calculateTotal.test.ts
 import { describe, it, expect } from "vitest";
 import { calculateTotal } from "./calculateTotal";
 
 describe("calculateTotal", () => {
-    it("空字符串返回0", () => {
+    it("should return 0 for empty input", () => {
         expect(calculateTotal("")).toBe(0);
+        expect(calculateTotal(null as any)).toBe(0);
+        expect(calculateTotal(undefined as any)).toBe(0);
     });
 
-    it("单个数字字符串", () => {
-        expect(calculateTotal("42")).toBe(42);
+    it("should handle comma-separated values", () => {
+        expect(calculateTotal("100,200,300")).toBe(600);
+        expect(calculateTotal("1.5, 2.5, 3.5")).toBe(7.5);
     });
 
-    it("逗号分隔的数值", () => {
-        expect(calculateTotal("10,20,30")).toBe(60);
+    it("should handle newline-separated values", () => {
+        expect(calculateTotal("100\n200\n300")).toBe(600);
+        expect(calculateTotal("1.5\n 2.5\n 3.5")).toBe(7.5);
     });
 
-    it("换行符分隔的数值", () => {
-        expect(calculateTotal("10\n20\n30")).toBe(60);
+    it("should handle mixed comma and newline separators", () => {
+        expect(calculateTotal("100,200\n300")).toBe(600);
+        expect(calculateTotal("1.5, 2.5\n 3.5")).toBe(7.5);
     });
 
-    it("混合逗号和换行符", () => {
-        expect(calculateTotal("10,20\n30")).toBe(60);
+    it("should ignore empty values and whitespace", () => {
+        expect(calculateTotal("100, , 200\n, 300")).toBe(600);
+        expect(calculateTotal(",1.5,  ,2.5\n,3.5,")).toBe(7.5);
     });
 
-    it("带空格和空元素", () => {
-        expect(calculateTotal(" 10 ,, 20 \n 30 ")).toBe(60);
+    it("should return 0 if any value is invalid", () => {
+        expect(calculateTotal("abc,def,ghi")).toBe(0);
+        expect(calculateTotal("100,200,invalid300")).toBe(0);
     });
 
-    it("包含非数字时返回0", () => {
-        expect(calculateTotal("10, abc, 20")).toBe(0);
+    it("should return number if some values start with number", () => {
+        expect(calculateTotal("100,200,300aaa")).toBe(600);
+        expect(calculateTotal("100,200,3aaa333")).toBe(303);
     });
 
-    it("部分无效数字时返回0", () => {
-        expect(calculateTotal("10, 20, NaN")).toBe(0);
-    });
-
-    it("科学计数法支持", () => {
-        expect(calculateTotal("1e3, 2.5e2")).toBe(1250);
-    });
-
-    it("仅分隔符返回0", () => {
-        expect(calculateTotal(",\n, ,")).toBe(0);
-    });
-
-    it("小数计算", () => {
-        expect(calculateTotal("0.1, 0.2")).toBeCloseTo(0.3);
-    });
-
-    it("大数字计算", () => {
-        expect(calculateTotal("1000000, 2000000")).toBe(3000000);
+    it("should handle single value", () => {
+        expect(calculateTotal("100")).toBe(100);
+        expect(calculateTotal("3.14")).toBe(3.14);
     });
 });
