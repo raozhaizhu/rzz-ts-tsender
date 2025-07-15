@@ -22,7 +22,7 @@ export const metadata = {
     openGraph: {
         title: "RzzTSender",
         description: "该页面由Raozhaizhu制作,用于展示WEB3/NextJs相关技术栈",
-        url: "http://localhost:3000/",
+        url: "https://vercel.com/raozhaizhus-projects/rzz-ts-tsender",
         images: [{ url: "/cover.png" }],
     },
     twitter: {

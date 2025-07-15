@@ -1,4 +1,8 @@
-# 要做啥
+# 网站-已完成
+
+**https://vercel.com/raozhaizhus-projects/rzz-ts-tsender**
+
+## 要做啥
 
 1. NextJS 前端页面 ✅
 
@@ -36,7 +40,9 @@
             2. 如果不符合,测试应该报错
             3. 所有测试应当通过
 
-4. 部署到 vercel
+4. 部署到 vercel ✅
+
+    **https://vercel.com/raozhaizhus-projects/rzz-ts-tsender**
 
 ## 技术栈
 
