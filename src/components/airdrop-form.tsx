@@ -5,13 +5,13 @@ import { useForm, useWatch } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { chainsToTSender, tsenderAbi, erc20Abi } from "@/constants";
 import { useAccount, useChainId, useConfig, useWriteContract } from "wagmi";
 import { readContract, waitForTransactionReceipt } from "@wagmi/core";
-import { formatEther, isAddress, parseEther } from "viem";
+import { formatEther, isAddress } from "viem";
 import { useMemo } from "react";
 import { calculateTotal } from "@/utils";
 
@@ -48,7 +48,7 @@ export function AirDropForm() {
     const config = useConfig();
     const account = useAccount();
     const total: number = useMemo(() => calculateTotal(amounts), [amounts]);
-    const { data: hash, isPending, writeContractAsync } = useWriteContract();
+    const { isPending, writeContractAsync } = useWriteContract();
 
     const getApprovedAmount = async (tSenderAddress: string | null): Promise<number> => {
         if (!tSenderAddress) {

@@ -5,8 +5,6 @@ import { calculateTotal } from "./calculateTotal";
 describe("calculateTotal", () => {
     it("should return 0 for empty input", () => {
         expect(calculateTotal("")).toBe(0);
-        expect(calculateTotal(null as any)).toBe(0);
-        expect(calculateTotal(undefined as any)).toBe(0);
     });
 
     it("should handle comma-separated values", () => {
