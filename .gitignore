@@ -49,3 +49,6 @@ node_modules/
 
 # synpress
 /.cache-synpress/
+
+# vscode 
+.vscode/
