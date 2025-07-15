@@ -3,13 +3,13 @@
 1. NextJS 前端页面
 
     - 静态就行
-    - 搞个好的钱包互动界面
+    - 用 Shadcn 搞个好的钱包互动界面
+    - 校验类型安全性,使用 zod 解决很多问题
 
 2. ERC20 TOKEN 投放功能 `将直接使用现有的Anvil配置数据进行测试`
 
     - 实现货币投放,支持主网和 zksync 和我们的测试 anvil
     - 货币投放可以对多个账号进行不同金额的多笔投放
-    - 校验类型安全性,使用 zod 解决很多问题
 
     - ```solidity
       function airdropERC20(){
@@ -43,10 +43,13 @@
 -   NextJs
 -   Tailwind
 -   Shadcn
+-   Solidity `主要是测试`
+-   Foundry `主要是测试`
 -   zod
 -   viem
 -   wagmi
--   RainbowKit
+-   rainbowkit
 -   tanstack/react-query
 -   vitest
+-   playwright
 -   synpress
