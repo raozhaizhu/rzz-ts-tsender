@@ -2,7 +2,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import config from "@/rainbowKitConfig";
+import config from "@/rainbowkit-config";
 import { WagmiProvider } from "wagmi";
 
 export function Providers({ children }: { children: ReactNode }) {

@@ -1,11 +1,9 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import "@rainbow-me/rainbowkit/styles.css";
 import { type ReactNode } from "react";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
@@ -17,6 +15,23 @@ const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
 });
+
+export const metadata = {
+    title: "RzzTSender",
+    description: "该页面由Raozhaizhu制作,用于展示WEB3/NextJs相关技术栈",
+    openGraph: {
+        title: "RzzTSender",
+        description: "该页面由Raozhaizhu制作,用于展示WEB3/NextJs相关技术栈",
+        url: "http://localhost:3000/",
+        images: [{ url: "/cover.png" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "RzzTSender",
+        description: "该页面由Raozhaizhu制作,用于展示WEB3/NextJs相关技术栈",
+        images: ["/cover.png"],
+    },
+};
 
 export default function RootLayout({
     children,
